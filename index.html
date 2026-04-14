@@ -3,100 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House of Judah | Welcome</title>
+    <title>House of Judah | Home</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        nav {
-            background: #2d0b5a;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid #d4af37;
-        }
-        .logo {
-            font-weight: bold;
-            color: #d4af37;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-        }
-        .hero {
-            background: #2d0b5a;
-            color: white;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            color: #d4af37;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        .btn {
-            background: #d4af37;
-            color: #2d0b5a;
-            padding: 18px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .btn:hover {
-            background: #ffffff;
-            transform: translateY(-3px);
-        }
-        footer {
-            background: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+        nav { background: #2d0b5a; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #d4af37; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #d4af37; font-weight: bold; letter-spacing: 2px; text-decoration: none; }
+        .nav-links { list-style: none; display: flex; margin: 0; }
+        .nav-links li { margin-left: 15px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
+        .hero { background: #2d0b5a; color: white; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; }
+        h1 { font-size: clamp(2rem, 8vw, 4rem); color: #d4af37; margin-bottom: 10px; text-transform: uppercase; }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin-top: 20px; }
+        .btn { background: #d4af37; color: #2d0b5a; padding: 16px; text-decoration: none; font-weight: bold; border-radius: 8px; text-transform: uppercase; text-align: center; transition: 0.3s; }
+        .btn:hover { background: #fff; transform: translateY(-2px); }
+        footer { background: #1a1a1a; color: #888; text-align: center; padding: 20px; font-size: 0.9rem; }
+        @media (max-width: 600px) { .nav-links { display: none; } }
     </style>
 </head>
 <body>
-
     <nav>
-        <div class="logo">HOUSE OF JUDAH</div>
+        <a href="index.html" class="logo">HOUSE OF JUDAH</a>
+        <ul class="nav-links">
+            <li><a href="meetings.html">Meetings</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="cal.html">Tithe</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
-
     <section class="hero">
-        <h1>Welcome to House of Judah</h1>
+        <h1>Welcome Home</h1>
         <p>A place of fellowship and growth. We are glad you are here.</p>
-        <a href="meetings.html" class="btn">View Schedule</a>
-        <p></p>
-        <a href="events.html" class="btn">View Events</a>
-        <p></p>
-        <a href="videos.html" class="btn">Watch Our Videos</a>
-        <p></p>
-        <a href="cal.html" class="btn">Use Our Tithe Calculator</a>
-    
+        <div class="btn-group">
+            <a href="meetings.html" class="btn">View Schedule</a>
+            <a href="events.html" class="btn">Upcoming Events</a>
+            <a href="videos.html" class="btn">Watch Videos</a>
+            <a href="cal.html" class="btn">Tithe Calculator</a>
+        </div>
     </section>
-
-    <footer>
-        2026 House of Judah
-    </footer>
-
+    <footer>&copy; 2026 House of Judah</footer>
 </body>
 </html>
