@@ -5,100 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetings | House of Judah</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        nav {
-            background: #2d0b5a;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid #d4af37;
-        }
-        .logo a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #d4af37;
-            letter-spacing: 2px;
-        }
-        .content {
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h2 {
-            color: #2d0b5a;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .card {
-            background: white;
-            width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-top: 8px solid #d4af37;
-            text-align: center;
-        }
-        .meeting-title {
-            font-size: 1.8rem;
-            color: #2d0b5a;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .day {
-            font-size: 1.4rem;
-            color: #333;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .time {
-            font-size: 2rem;
-            color: #d4af37;
-            background: #2d0b5a;
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        .back-link {
-            margin-top: 30px;
-            display: inline-block;
-            color: #2d0b5a;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; }
+        nav { background: #2d0b5a; padding: 1rem 5%; border-bottom: 3px solid #d4af37; display: flex; justify-content: center; }
+        .logo { color: #d4af37; font-weight: bold; text-decoration: none; letter-spacing: 2px; font-size: 1.4rem; }
+        .content { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; }
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 8px solid #d4af37; text-align: center; max-width: 450px; width: 100%; }
+        h2 { color: #2d0b5a; margin-bottom: 30px; }
+        .time { font-size: 2rem; color: #d4af37; background: #2d0b5a; display: inline-block; padding: 10px 20px; border-radius: 5px; margin: 20px 0; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <nav>
-        <div class="logo"><a href="index.html">HOUSE OF JUDAH</a></div>
-    </nav>
-
-    <section class="content">
-        <h2>Our Meeting Schedule</h2>
-
+    <nav><a href="index.html" class="logo">HOUSE OF JUDAH</a></nav>
+    <div class="content">
+        <h2>Meeting Schedule</h2>
         <div class="card">
-            <span class="meeting-title">Bible Study</span>
-            <div class="day">2nd & 4th Saturday</div>
+            <h3 style="color:#2d0b5a; margin-top:0;">Bible Study</h3>
+            <p><strong>2nd & 4th Saturday</strong></p>
             <div class="time">12:00 PM</div>
-            <p><strong>Location:</strong> Community Hall</p>
-            <p>Join us for in-depth study and fellowship. Both on phone and in-person options are available.</p>
+            <p>Location: <strong>Community Hall</strong></p>
+            <br><a href="index.html" style="color:#2d0b5a; text-decoration:none; font-weight:bold;">← Back Home</a>
         </div>
-
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </section>
-
+    </div>
 </body>
 </html>
