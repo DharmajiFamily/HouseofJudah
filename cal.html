@@ -5,178 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tithe Calculator | House of Judah</title>
     <style>
-        /* House of Judah Theme Styles */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f4; 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh; 
-        }
-        
-        nav { 
-            background: #2d0b5a; /* Deep Purple */
-            padding: 1.2rem 5%; 
-            display: flex; 
-            justify-content: center; 
-            border-bottom: 3px solid #d4af37; /* Gold */
-        }
-        
-        .logo { 
-            font-weight: bold; 
-            color: #d4af37; 
-            letter-spacing: 2px; 
-            font-size: 1.4rem; 
-            text-decoration: none;
-        }
-
-        .container { 
-            flex: 1; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 40px 20px; 
-        }
-
-        .calc-card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            border-top: 8px solid #d4af37; 
-            width: 100%; 
-            max-width: 400px; 
-            text-align: center; 
-        }
-
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f4f4; display: flex; flex-direction: column; min-height: 100vh; }
+        nav { background: #2d0b5a; padding: 1.2rem 5%; display: flex; justify-content: center; border-bottom: 3px solid #d4af37; }
+        .logo { font-weight: bold; color: #d4af37; letter-spacing: 2px; font-size: 1.4rem; text-decoration: none; }
+        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+        .calc-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 8px solid #d4af37; width: 100%; max-width: 400px; text-align: center; }
         h2 { color: #2d0b5a; margin-top: 0; }
-        
-        input[type="number"] { 
-            width: 100%; 
-            padding: 15px; 
-            margin: 10px 0; 
-            border: 2px solid #ddd; 
-            border-radius: 8px; 
-            font-size: 1.1rem; 
-            box-sizing: border-box; 
-        }
-
-        .checkbox-wrapper {
-            margin: 15px 0;
-            text-align: left;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        button { 
-            background-color: #d4af37; 
-            color: #2d0b5a; 
-            border: none; 
-            padding: 15px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            font-weight: bold; 
-            width: 100%; 
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        button:hover { 
-            background-color: #2d0b5a; 
-            color: white; 
-        }
-
-        #output { 
-            margin-top: 25px; 
-            text-align: left; 
-            border-top: 1px solid #eee; 
-            padding-top: 20px; 
-            display: none; 
-            color: #333;
-        }
-
-        .green { 
-            color: #28a745; 
-            font-weight: bold; 
-            font-size: 1.3rem; 
-            margin-top: 10px;
-            display: block;
-        }
-
-        .back-link {
-            margin-top: 25px;
-            display: inline-block;
-            color: #2d0b5a;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
+        input[type="number"] { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #ddd; border-radius: 8px; font-size: 1.1rem; box-sizing: border-box; }
+        .checkbox-wrapper { margin: 15px 0; text-align: left; color: #555; }
+        button { background-color: #d4af37; color: #2d0b5a; border: none; padding: 15px; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; text-transform: uppercase; transition: 0.3s; }
+        button:hover { background-color: #2d0b5a; color: white; }
+        #output { margin-top: 25px; text-align: left; border-top: 1px solid #eee; padding-top: 20px; display: none; color: #333; line-height: 1.6; }
+        .green { color: #28a745; font-weight: bold; font-size: 1.3rem; margin-top: 10px; display: block; }
+        .back-link { margin-top: 25px; display: inline-block; color: #2d0b5a; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="index.html" class="logo">HOUSE OF JUDAH</a>
-    </nav>
-
+    <nav><a href="index.html" class="logo">HOUSE OF JUDAH</a></nav>
     <div class="container">
         <div class="calc-card">
             <h2>Tithe Calculator</h2>
-            <p style="color: #666; margin-bottom: 25px;">Enter your income to calculate your 10% tithes.</p>
-            
             <input type="number" id="dollars" placeholder="Enter amount ($)">
-            
             <div class="checkbox-wrapper">
                 <label><input type="checkbox" id="thirdCheck"> Include 3rd Tithe?</label>
             </div>
-
             <button onclick="calculate()">Calculate Now</button>
-
             <div id="output">
                 <div id="t1"></div>
                 <div id="t2"></div>
                 <div id="t3"></div>
                 <div id="total" class="green"></div>
             </div>
-
             <a href="index.html" class="back-link">← Back to Home</a>
         </div>
     </div>
-
     <script>
-    // Calculation logic from your original file
     function calculate() {
         let amt = parseFloat(document.getElementById('dollars').value);
-        if (isNaN(amt) || amt <= 0) {
-            alert("Please enter a valid amount");
-            return;
-        }
-
+        if (isNaN(amt) || amt <= 0) { alert("Please enter a valid amount"); return; }
         let tithe1 = amt * 0.10;
         let remain = amt - tithe1;
-        
         let tithe2 = remain * 0.10;
         remain -= tithe2;
-
         document.getElementById('t1').innerHTML = "<b>First Tithe:</b> $" + tithe1.toFixed(2);
         document.getElementById('t2').innerHTML = "<b>Second Tithe:</b> $" + tithe2.toFixed(2);
-
         if (document.getElementById('thirdCheck').checked) {
             let tithe3 = remain * 0.10;
             remain -= tithe3;
             document.getElementById('t3').innerHTML = "<b>Third Tithe:</b> $" + tithe3.toFixed(2);
             document.getElementById('t3').style.display = "block";
-        } else {
-            document.getElementById('t3').style.display = "none";
-        }
-
+        } else { document.getElementById('t3').style.display = "none"; }
         document.getElementById('total').innerHTML = "Remaining: $" + remain.toFixed(2);
         document.getElementById('output').style.display = "block";
     }
     </script>
-
 </body>
 </html>
