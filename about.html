@@ -5,41 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | House of Judah</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; color: #333; line-height: 1.6; }
-        nav { background: #2d0b5a; padding: 1.2rem 5%; display: flex; justify-content: center; border-bottom: 3px solid #d4af37; }
-        .logo { color: #d4af37; font-weight: bold; text-decoration: none; font-size: 1.4rem; letter-spacing: 2px; }
-        .container { max-width: 800px; margin: 50px auto; padding: 0 20px; }
-        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 8px solid #d4af37; }
-        h2 { color: #2d0b5a; text-align: center; font-size: 2.2rem; margin-top: 0; }
-        .scripture-box { background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37; margin: 20px 0; font-style: italic; }
-        .ref-list { font-weight: bold; color: #2d0b5a; margin-top: 20px; text-align: center; }
-        .back-link { display: block; text-align: center; margin-top: 30px; color: #2d0b5a; text-decoration: none; font-weight: bold; }
-        footer { background: #1a1a1a; color: #888; text-align: center; padding: 25px; margin-top: 50px; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: #2d0b5a; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            text-align: center;
+        }
+        nav { 
+            background: #2d0b5a; 
+            padding: 1.5rem 5%; 
+            border-bottom: 3px solid #d4af37; 
+        }
+        .logo { 
+            color: #d4af37; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            font-size: 1.5rem; 
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .container { 
+            flex: 1; 
+            padding: 30px 15px; 
+            max-width: 700px; 
+            margin: auto; 
+        }
+        h1 { color: #d4af37; margin-bottom: 25px; font-size: 2.2rem; }
+        
+        .about-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            line-height: 1.8;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: left;
+        }
+        .bible-link {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed #d4af37;
+        }
+        .bible-link:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer { 
+            background: #1a1a1a; 
+            color: #aaa; 
+            padding: 20px; 
+            font-size: 0.85rem; 
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
 
-    <nav><a href="index.html" class="logo">HOUSE OF JUDAH</a></nav>
+    <nav>
+        <a href="index.html" class="logo">HOUSE OF JUDAH</a>
+    </nav>
 
     <div class="container">
-        <div class="card">
-            <h2>About Us</h2>
+        <h1>About Us</h1>
+        <div class="about-card">
             <p>We are a Fellowship of Believers in the Way. Saved by YESHUA (JESUS) our MESSIAH, Following HIS WAYS from the Beginning of the Bible to the End.</p>
             
-            <p>We are working out our Salvation with fear and trembling (Philippians 2:12). We are growing in our walk with our HEAVENLY FATHER together as we are keeping HIS Feasts! (Leviticus 23:2-43).</p>
+            <p>We are working out our Salvation with fear and trembling 
+                (<a class="bible-link" href="https://www.bible.com/bible/1/PHP.2.12" target="_blank">Philippians 2:12</a>). 
+                We are growing in our walk with our HEAVENLY FATHER together as we are keeping HIS Feasts! 
+                (<a class="bible-link" href="https://www.bible.com/bible/1/LEV.23.2-43" target="_blank">Leviticus 23:2-43</a>).
+            </p>
+            
+            <p style="text-align: center;">
+                <a class="bible-link" href="https://www.bible.com/bible/1/ACT.2.36-39" target="_blank">Acts 2:36-39</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/GAL.3.27-29" target="_blank">Galatians 3:27-29, v16</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/JHN.1.1-5" target="_blank">John 1:1-5</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/GEN.1.1" target="_blank">Genesis 1:1</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/JHN.14.6-7" target="_blank">John 14:6-7</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/1CO.12.7-31" target="_blank">1 Corinthians 12:7-31</a> | 
+                <a class="bible-link" href="https://www.bible.com/bible/1/MRK.16.15-18" target="_blank">Mark 16:15-18</a>
+            </p>
 
-            <div class="scripture-box">
-                "Study to shew thyself approved unto GOD, a workman that needeth not to be ashamed, rightly dividing the WORD of TRUTH."
-                <br><strong>— 2 Timothy 2:15</strong>
-            </div>
-
-            <div class="ref-list">
-                Acts 2:36-39 | Galatians 3:27-29, v.16 | John 1:1-5 | Genesis 1:1<br>
-                John 14:6, 7 | 1 Corinthians 12:7-11, v.28-31 | Mark 16:15-18
-            </div>
-
-            <a href="index.html" class="back-link">← Back to Home</a>
+            <p style="margin-top: 25px; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 20px; font-style: italic;">
+                "<a class="bible-link" href="https://www.bible.com/bible/1/2TI.2.15" target="_blank">2 Timothy 2:15</a> Study to shew thyself approved unto GOD, a workman that needeth not to be ashamed, rightly dividing the WORD of TRUTH."
+            </p>
         </div>
+
+        <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
 
     <footer>
