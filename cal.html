@@ -8,35 +8,170 @@
       gtag('js', new Date());
       gtag('config', 'G-MSKNHHV9M6');
     </script>
+
     <link rel="icon" type="image/jpeg" href="1000034613.jpg">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tithe Calculator | House of Judah</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #2d0b5a; color: white; display: flex; flex-direction: column; min-height: 100vh; text-align: center; }
-        nav { background: #2d0b5a; padding: 1.5rem 5%; border-bottom: 3px solid #d4af37; display: flex; justify-content: center; align-items: center; }
-        .logo-text { color: #d4af37; font-weight: bold; letter-spacing: 2px; font-size: 1.5rem; text-transform: uppercase; text-decoration: none; }
-        .calc-card { background: rgba(255, 255, 255, 0.08); padding: 30px; border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3); max-width: 400px; margin: 40px auto; }
-        input { width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 1.1rem; box-sizing: border-box; }
-        footer { background: #1a1a1a; color: #aaa; padding: 25px; font-size: 0.85rem; margin-top: auto; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: #2d0b5a; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            text-align: center;
+        }
+        nav { 
+            background: #2d0b5a; 
+            padding: 1.5rem 5%; 
+            border-bottom: 3px solid #d4af37;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-text { 
+            color: #d4af37; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            font-size: 1.5rem; 
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .container { 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+        }
+        .calc-card { 
+            background: rgba(255, 255, 255, 0.08); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            max-width: 350px; 
+            width: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        h2 { color: #d4af37; margin-bottom: 20px; }
+        input[type="number"] { 
+            width: 90%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            text-align: center;
+        }
+        label { display: block; margin: 15px 0; font-size: 0.9rem; cursor: pointer; }
+        button { 
+            background-color: #d4af37; 
+            color: #2d0b5a; 
+            border: none; 
+            padding: 15px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            width: 100%; 
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #fff; transform: scale(1.02); }
+        #output { 
+            margin-top: 25px; 
+            text-align: left; 
+            line-height: 1.8; 
+            border-top: 1px solid rgba(212, 175, 55, 0.2); 
+            padding-top: 15px; 
+            display: none; 
+        }
+        .green { color: #d4af37; font-weight: bold; font-size: 1.2em; }
+        .back-link { 
+            display: block; 
+            margin-top: 30px; 
+            color: #d4af37; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        footer { 
+            background: #1a1a1a; 
+            color: #aaa; 
+            padding: 25px; 
+            font-size: 0.85rem; 
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
-    <nav><a href="index.html" class="logo-text">HOUSE OF JUDAH</a></nav>
+
+<nav>
+    <a href="index.html" class="logo-text">HOUSE OF JUDAH</a>
+</nav>
+
+<div class="container">
     <div class="calc-card">
         <h2>Tithe Calculator</h2>
-        <input type="number" id="income" placeholder="Enter Amount ($)">
-        <p>1st Tithe: $<span id="t1">0</span></p>
-        <p>2nd Tithe: $<span id="t2">0</span></p>
+        <input type="number" id="dollars" placeholder="Enter amount ($)">
+        
+        <label>
+            <input type="checkbox" id="thirdCheck"> Include 3rd Tithe?
+        </label>
+        
+        <button onclick="calculate()">Calculate Now</button>
+
+        <div id="output">
+            <div id="t1"></div>
+            <div id="t2"></div>
+            <div id="t3"></div>
+            <div id="total" class="green"></div>
+        </div>
     </div>
-    <a href="index.html" style="color:#d4af37; text-decoration:none; font-weight:bold;">← BACK TO HOME</a>
-    <footer>2026 House of Judah</footer>
-    <script>
-        document.getElementById('income').addEventListener('input', function(e){
-            let val = e.target.value;
-            document.getElementById('t1').innerText = (val * 0.10).toFixed(2);
-            document.getElementById('t2').innerText = (val * 0.10).toFixed(2);
-        });
-    </script>
+    
+    <a href="index.html" class="back-link">← Back to Home</a>
+</div>
+
+<footer>
+    2026 House of Judah
+</footer>
+
+<script>
+function calculate() {
+    let amt = parseFloat(document.getElementById('dollars').value);
+    if (isNaN(amt) || amt <= 0) {
+        alert("Please enter a valid amount");
+        return;
+    }
+
+    // Your specific calculation logic kept exactly as provided
+    let tithe1 = amt * 0.10;
+    let remain = amt - tithe1;
+    
+    let tithe2 = remain * 0.10;
+    remain -= tithe2;
+
+    document.getElementById('t1').innerHTML = "<b>First Tithe:</b> $" + tithe1.toFixed(2);
+    document.getElementById('t2').innerHTML = "<b>Second Tithe:</b> $" + tithe2.toFixed(2);
+
+    if (document.getElementById('thirdCheck').checked) {
+        let tithe3 = remain * 0.10;
+        remain -= tithe3;
+        document.getElementById('t3').innerHTML = "<b>Third Tithe:</b> $" + tithe3.toFixed(2);
+        document.getElementById('t3').style.display = "block";
+    } else {
+        document.getElementById('t3').style.display = "none";
+    }
+
+    document.getElementById('total').innerHTML = "<br>Remaining: $" + remain.toFixed(2);
+    document.getElementById('output').style.display = "block";
+}
+</script>
+
 </body>
 </html>
