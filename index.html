@@ -5,29 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House of Judah | Home</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #2d0b5a; color: white; display: flex; flex-direction: column; min-height: 100vh; text-align: center; }
-        nav { background: #2d0b5a; padding: 1.5rem 5%; border-bottom: 3px solid #d4af37; }
-        .logo { color: #d4af37; font-weight: bold; letter-spacing: 2px; font-size: 1.5rem; text-transform: uppercase; }
-        .container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
-        .hero-text h1 { color: #d4af37; font-size: 2.5rem; margin-bottom: 40px; }
-        .btn-group { display: grid; grid-template-columns: 1fr; gap: 15px; width: 100%; max-width: 320px; }
-        .btn { background: #d4af37; color: #2d0b5a; padding: 18px; text-decoration: none; font-weight: bold; border-radius: 10px; text-transform: uppercase; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: #2d0b5a; /* Purple Theme */
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            text-align: center;
+        }
+        nav { 
+            background: #2d0b5a; 
+            padding: 1.5rem 5%; 
+            border-bottom: 3px solid #d4af37; /* Gold Theme */
+        }
+        .logo { 
+            color: #d4af37; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            font-size: 1.5rem; 
+            text-transform: uppercase;
+        }
+        .container { 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+        }
+        .hero-text h1 { color: #d4af37; font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; }
+
+        .btn-group { 
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 320px;
+        }
+        .btn { 
+            background: #d4af37; 
+            color: #2d0b5a; 
+            padding: 18px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 10px; 
+            text-transform: uppercase; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
         .btn:hover { background: #fff; transform: scale(1.03); }
-        footer { background: #1a1a1a; color: #aaa; padding: 25px; font-size: 0.85rem; }
+
+        footer { 
+            background: #1a1a1a; 
+            color: #aaa; 
+            padding: 25px; 
+            font-size: 0.85rem; 
+        }
     </style>
 </head>
 <body>
-    <nav><div class="logo">HOUSE OF JUDAH</div></nav>
+
+    <nav>
+        <div class="logo">HOUSE OF JUDAH</div>
+    </nav>
+
     <div class="container">
-        <div class="hero-text"><h1>Welcome</h1></div>
+        <div class="hero-text">
+            <h1>Welcome</h1>
+            <p>Fellowship and Growth in the Way</p>
+        </div>
+
         <div class="btn-group">
             <a href="about.html" class="btn">About Us</a>
             <a href="biblestudy.html" class="btn">Bible Study PDFs</a>
             <a href="meetings.html" class="btn">View Schedule</a>
-            <a href="videos.html" class="btn">Watch Videos</a>
+            <a href="events.html" class="btn">Upcoming Events</a>
+            <a href="videos.html" class="btn">Watch Online</a>
             <a href="cal.html" class="btn">Tithe Calculator</a>
+            <a href="contact.html" class="btn">Contact Us</a>
         </div>
     </div>
-    <footer>2026 House of Judah</footer>
+
+    <footer>
+        2026 House of Judah
+    </footer>
+
 </body>
 </html>
