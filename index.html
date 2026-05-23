@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/HouseofJudah/manifest.json">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSKNHHV9M6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -98,10 +98,10 @@
 
     <footer>
         2026 House of Judah
-    </footer>
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
+    // Added the folder path here
+    navigator.serviceWorker.register('/HouseofJudah/sw.js')
       .then(() => console.log('App ready to install!'))
       .catch((err) => console.log('Error', err));
   }
