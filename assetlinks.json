@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.dharmajifamily.twa",
+        "sha256_cert_fingerprints": ["5F:07:76:6A:55:DA:46:B3:8C:58:59:51:2C:06:20:E1:C2:B4:87:EA:C4:F8:18:A1:7A:97:A4:D0:2F:D1:BC:F3"]
+      }
+    }]
