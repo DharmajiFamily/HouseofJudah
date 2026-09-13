@@ -125,7 +125,7 @@
         <h1>Upcoming Events</h1>
         
         <div class="event-card">
-            <span id="eventDate" class="event-date">Today until Sunset</span>
+            <span id="eventDate" class="event-date">Today until Sunset (7:30 PM)</span>
             <h2 class="event-title">Feast of Trumpets</h2>
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feast+of+Trumpets&details=House+of+Judah+Feast+of+Trumpets+Observance" target="_blank" class="cal-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo">
@@ -142,9 +142,11 @@
     <script>
     function updateEventStatus() {
         const now = new Date();
-        const currentHour = now.getHours();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
 
-        if (currentHour >= 19) {
+        // Checks if time is past 7:30 PM (19:30)
+        if (hours > 19 || (hours === 19 && minutes >= 30)) {
             document.getElementById('eventDate').innerText = "Passed at Sunset";
             document.getElementById('eventDate').style.color = "#aaa";
         }
@@ -155,3 +157,4 @@
 
 </body>
 </html>
+
