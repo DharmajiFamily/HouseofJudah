@@ -64,13 +64,20 @@
             display: block;
             margin-bottom: 5px;
         }
+        .event-status-badge {
+            float: right;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+        }
         .event-title {
             font-size: 1.4rem;
             margin: 0 0 10px 0;
             color: #fff;
         }
 
-        /* Button with Google Calendar Logo */
         .cal-btn {
             background: #ffffff;
             color: #3c4043;
@@ -124,14 +131,7 @@
     <div class="container">
         <h1>Upcoming Events</h1>
         
-        <div class="event-card">
-            <span id="eventDate" class="event-date">Today until Sunset (7:30 PM)</span>
-            <h2 class="event-title">Feast of Trumpets</h2>
-            <a id="calLink" href="#" target="_blank" class="cal-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo">
-                Add to Calendar
-            </a>
-        </div>
+        <div id="eventsContainer"></div>
 
         <br><br>
         <a href="index.html" class="back-btn">← Back to Home</a>
@@ -140,32 +140,77 @@
     <footer>2026 House of Judah</footer>
 
     <script>
-    function setupEventPage() {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-
-        // 1. Update text status if past 7:30 PM (19:30)
-        if (hours > 19 || (hours === 19 && minutes >= 30)) {
-            document.getElementById('eventDate').innerText = "Passed at Sunset";
-            document.getElementById('eventDate').style.color = "#aaa";
+    const eventsList = [
+        {
+            title: "Feast of Trumpets",
+            displayDate: "Today (Ends Sunset 7:30 PM)",
+            start: new Date(2026, 8, 12, 19, 30), // Sept 12 7:30 PM
+            end: new Date(2026, 8, 13, 19, 30),   // Sept 13 7:30 PM
+            calStart: "20260912T193000Z",
+            calEnd: "20260913T193000Z"
+        },
+        {
+            title: "Day of Atonement",
+            displayDate: "Sept 21 Sunset – Sept 22 Sunset (7:30 PM)",
+            start: new Date(2026, 8, 21, 19, 30), // Sept 21 7:30 PM
+            end: new Date(2026, 8, 22, 19, 30),   // Sept 22 7:30 PM
+            calStart: "20260921T193000Z",
+            calEnd: "20260922T193000Z"
+        },
+        {
+            title: "Feast of Tabernacles (Sukkot)",
+            displayDate: "Sept 26 Sunset – Oct 3 Sunset (7:30 PM)",
+            start: new Date(2026, 8, 26, 19, 30), // Sept 26 7:30 PM
+            end: new Date(2026, 9, 3, 19, 30),    // Oct 3 7:30 PM
+            calStart: "20260926T193000Z",
+            calEnd: "20261003T193000Z"
+        },
+        {
+            title: "The 8th Day (Last Great Day)",
+            displayDate: "Oct 3 Sunset – Oct 4 Sunset (7:30 PM)",
+            start: new Date(2026, 9, 3, 19, 30),  // Oct 3 7:30 PM
+            end: new Date(2026, 9, 4, 19, 30),    // Oct 4 7:30 PM
+            calStart: "20261003T193000Z",
+            calEnd: "20261004T193000Z"
         }
+    ];
 
-        // 2. Build Google Calendar link ending at 7:30 PM today
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        
-        const dateStr = `${year}${month}${day}`;
-        // Sets start time to 00:00:00 and end time to 19:30:00 (7:30 PM)
-        const datesParam = `${dateStr}T000000/${dateStr}T193000`;
-        
-        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feast+of+Trumpets&dates=${datesParam}&details=House+of+Judah+Feast+of+Trumpets+Observance`;
-        
-        document.getElementById('calLink').href = calendarUrl;
+    function renderEvents() {
+        const now = new Date();
+        const container = document.getElementById('eventsContainer');
+        container.innerHTML = '';
+
+        eventsList.forEach(event => {
+            let statusText = "Upcoming";
+            let opacityStyle = "1.0";
+
+            if (now >= event.start && now <= event.end) {
+                statusText = "Active Now";
+            } else if (now > event.end) {
+                statusText = "Passed at Sunset";
+                opacityStyle = "0.5";
+            }
+
+            const encodedTitle = encodeURIComponent(event.title);
+            const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodedTitle}&dates=${event.calStart}/${event.calEnd}&details=House+of+Judah+Observance`;
+
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            card.style.opacity = opacityStyle;
+            card.innerHTML = `
+                <span class="event-status-badge">${statusText}</span>
+                <span class="event-date">${event.displayDate}</span>
+                <h2 class="event-title">${event.title}</h2>
+                <a href="${calUrl}" target="_blank" class="cal-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo">
+                    Add to Calendar
+                </a>
+            `;
+            container.appendChild(card);
+        });
     }
 
-    window.onload = setupEventPage;
+    window.onload = renderEvents;
     </script>
 
 </body>
