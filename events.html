@@ -73,17 +73,18 @@
         /* Button with Google Calendar Logo */
         .cal-btn {
             background: #ffffff;
-            color: #3c4043; /* Google's dark grey text color */
+            color: #3c4043;
             border: 1px solid #dadce0;
             padding: 10px 24px;
             text-decoration: none;
-            border-radius: 24px; /* More rounded Google style */
+            border-radius: 24px;
             font-size: 1rem;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
             transition: background-color 0.2s, box-shadow 0.2s;
             box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            margin-top: 10px;
         }
         
         .cal-btn img {
@@ -123,18 +124,34 @@
     <div class="container">
         <h1>Upcoming Events</h1>
         
-        <p>There are no upcoming events that we know of</p>
+        <div class="event-card">
+            <span id="eventDate" class="event-date">Today until Sunset</span>
+            <h2 class="event-title">Feast of Trumpets</h2>
+            <a href="https://calendar.google.com" target="_blank" class="cal-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo">
+                Add to Calendar
+            </a>
+        </div>
 
+        <br><br>
         <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
 
     <footer>2026 House of Judah</footer>
 
-</body>
-</html>
-            </a>
-        </div>
-        <br><br><a href="index.html" style="color:#2d0b5a; text-decoration:none; font-weight:bold;">← Back Home</a>
-    </div>
+    <script>
+    function updateEventStatus() {
+        const now = new Date();
+        const currentHour = now.getHours();
+
+        if (currentHour >= 19) {
+            document.getElementById('eventDate').innerText = "Passed at Sunset";
+            document.getElementById('eventDate').style.color = "#aaa";
+        }
+    }
+
+    window.onload = updateEventStatus;
+    </script>
+
 </body>
 </html>
