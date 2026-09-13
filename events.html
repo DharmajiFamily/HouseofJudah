@@ -127,7 +127,7 @@
         <div class="event-card">
             <span id="eventDate" class="event-date">Today until Sunset (7:30 PM)</span>
             <h2 class="event-title">Feast of Trumpets</h2>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feast+of+Trumpets&details=House+of+Judah+Feast+of+Trumpets+Observance" target="_blank" class="cal-btn">
+            <a id="calLink" href="#" target="_blank" class="cal-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar Logo">
                 Add to Calendar
             </a>
@@ -140,21 +140,33 @@
     <footer>2026 House of Judah</footer>
 
     <script>
-    function updateEventStatus() {
+    function setupEventPage() {
         const now = new Date();
         const hours = now.getHours();
         const minutes = now.getMinutes();
 
-        // Checks if time is past 7:30 PM (19:30)
+        // 1. Update text status if past 7:30 PM (19:30)
         if (hours > 19 || (hours === 19 && minutes >= 30)) {
             document.getElementById('eventDate').innerText = "Passed at Sunset";
             document.getElementById('eventDate').style.color = "#aaa";
         }
+
+        // 2. Build Google Calendar link ending at 7:30 PM today
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        
+        const dateStr = `${year}${month}${day}`;
+        // Sets start time to 00:00:00 and end time to 19:30:00 (7:30 PM)
+        const datesParam = `${dateStr}T000000/${dateStr}T193000`;
+        
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feast+of+Trumpets&dates=${datesParam}&details=House+of+Judah+Feast+of+Trumpets+Observance`;
+        
+        document.getElementById('calLink').href = calendarUrl;
     }
 
-    window.onload = updateEventStatus;
+    window.onload = setupEventPage;
     </script>
 
 </body>
 </html>
-
